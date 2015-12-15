@@ -2,8 +2,18 @@
 
 @{
     ViewBag.Title = "Details";
-    var loanAmount = Model.LoanAmount;
-    var period = 1;
+    double loanAmount = Convert.ToDouble(Model.LoanAmount);
+    double period = 1;
+    var annual_rate = Convert.ToDouble(Model.LoanInterestRate);
+    double monthly_rate = ((annual_rate) / 12);
+    int num_payment = Model.LoanTerm * 12;
+    var double_to_cast = Math.Pow((1 + monthly_rate), num_payment);
+    var monthly_payment = ((loanAmount*monthly_rate)/ Math.Pow(monthly_rate* (1 + monthly_rate), num_payment) / Math.Pow(1 + monthly_rate, num_payment - 1) * loanAmount);
+
+
+    var balance = Convert.ToDouble(Model.LoanAmount);
+    var monthly_interestpaid = (balance * monthly_rate);
+    var prin = monthly_interestpaid-monthly_payment;
 }
 
 <h2>Details</h2>
@@ -17,27 +27,45 @@
                    Period
                </th>
                <th>
-                   Interest
+                   Payment
                </th>
                <th>
-                   Pricipal
+                   Principle
+               </th>
+               <th>
+                   Interest
                </th>
                <th>
                    Balance
                </th>
            </tr>
-            @while (loanAmount > 0)
+            @while (true)
             {
-                period += 1;
-              <tr>
-                  <td>
-                      @period
-                  </td>
-              </tr>
-                if(period == 12)
+                <tr>
+                    <td>
+                        @period
+                    </td>
+                    <td>
+                        @monthly_payment
+                    </td>
+                    <td>
+                        @prin
+                    </td>
+                    <td>
+                        @monthly_interestpaid
+                    </td>
+                    <td>
+                        @balance
+                    </td>
+                </tr>
+                if(period == 5)
                 {
                     break;
                 }
+                monthly_interestpaid = (balance * monthly_rate);
+                prin = (monthly_interestpaid - monthly_payment);
+                balance -= (double)prin;
+                period += 1;
             }
         </table>
     </dl>
