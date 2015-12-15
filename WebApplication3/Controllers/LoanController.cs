@@ -28,7 +28,7 @@ namespace WebApplication3.Controllers
         public ActionResult Details(int id)
         {
             var userId = User.Identity.GetUserId();
-            var loan = db.Loan.Where(c => c.ApplicationUserId == userId).SingleOrDefault();
+            var loan = db.Loan.Where(c => c.Id == id).SingleOrDefault();
             return View(loan);
         }
 

@@ -2,6 +2,8 @@
 
 @{
     ViewBag.Title = "Details";
+    var loanAmount = Model.LoanAmount;
+    var period = 1;
 }
 
 <h2>Details</h2>
@@ -9,39 +11,35 @@
 <div>
     <h4>Loan</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.User.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.User.Email)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LoanName)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LoanName)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LoanAmount)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LoanAmount)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LoanInterestRate)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LoanInterestRate)
-        </dd>
-
+        <table class="table">
+           <tr>
+               <th>
+                   Period
+               </th>
+               <th>
+                   Interest
+               </th>
+               <th>
+                   Pricipal
+               </th>
+               <th>
+                   Balance
+               </th>
+           </tr>
+            @while (loanAmount > 0)
+            {
+                period += 1;
+              <tr>
+                  <td>
+                      @period
+                  </td>
+              </tr>
+                if(period == 12)
+                {
+                    break;
+                }
+            }
+        </table>
     </dl>
 </div>
 <p>
