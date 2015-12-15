@@ -1,0 +1,50 @@
+﻿@model WebApplication3.Models.Income
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Income</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.User.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncomeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeAmount)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncomeAmount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IncomeType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IncomeType)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

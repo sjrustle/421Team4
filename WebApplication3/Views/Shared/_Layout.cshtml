@@ -1,0 +1,150 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title Team 4 Finance Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/d3")
+
+    <style>
+        ul#menu li {
+            display: inline;
+        }
+
+            ul#menu li a:hover {
+                padding: 5px 5px 5px 5px;
+                background-color: rgb(255, 255, 255);
+            }
+    </style>
+
+    
+
+</head>
+<body style="background-color:lightskyblue">
+    <br /><br /><br /> <br /><br /><br />
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="top-number">
+                    <a href="~/Home/Index"><img src="~/Images/EscGoat.png" alt="Logo" width="35" height="30" align="left" /> </a>
+                    <p><br /><br> Esc Goats</p>
+                    <br /> @*<br /> <br />
+                        <p style="font-family:Aldhabi;color:lightgray">
+                            <font size="10">&nbsp; &nbsp; &nbsp; Goats that will help you escape to... </font>
+                        </p>
+                        <center><p style="font-family:'Script MT';color:lightgray"><font size="10">Paradise.</font></p></center>*@
+                </div>
+                @*@Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">@Html.ActionLink("Services", "Services", "Home")</a>
+                            <ul class="dropdown-menu">
+
+                                <li>@Html.ActionLink("List of Accounts", "Index", "CheckingAccount")</li>
+                                <li>@Html.ActionLink("Create Account", "Create", "CheckingAccount")</li>
+                                <li>@Html.ActionLink("Loan", "Index", "Loan")</li>
+                                <li>@Html.ActionLink("Add Loan", "Create", "Loan")</li>
+                                <li>@Html.ActionLink("List of Income", "Index", "Income")</li>
+                                <li>@Html.ActionLink("Add Income", "Create", "Income")</li>
+                                <li>@Html.ActionLink("List of Expense", "Index", "Expense")</li>
+                                <li>@Html.ActionLink("Add Expense", "Create", "Expense")</li>
+                                <li>@Html.ActionLink("Summary", "", "")</li>
+
+                            </ul>
+                        </li>
+                    }
+
+
+
+                    <li>@Html.ActionLink("About Us", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        <footer>
+            <section id="bottom">
+                <div class="container wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget">
+                                <h3>Company</h3>
+                                <ul>
+
+                                    <li><a href="Home/About">Meet the team</a></li>
+                                    <li><a href="Home/Contact">Contact us</a></li>
+                                </ul>
+                            </div>
+                        </div><!--/.col-md-3-->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget">
+                                <h3>Support</h3>
+                                <ul>
+                                    <li><a href="#">Faq</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                    <li><a href="#">Forum</a></li>
+                                    <li><a href="#">Documentation</a></li>
+                                    <li><a href="#">Refund policy</a></li>
+
+                                </ul>
+                            </div>
+                        </div><!--/.col-md-3-->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget">
+                                <h3>Developers</h3>
+                                <ul>
+                                    <li>Jesse Zhou |Web Developer|</li>
+                                    <li>Scott Russell |Controller|</li>
+                                    <li>John Harrison |SQL Adminstrator|</li>
+                                    <li>Harminder Singh |Web Developer Assistant|</li>
+                                    <li>Byrce Jognich |Quality Assurance|</li>
+                                </ul>
+                            </div>
+                        </div><!--/.col-md-3-->
+                        <div class="col-md-3 col-sm-6">
+                            <div class="widget">
+                                <h3>Our Partners</h3>
+                                <ul>
+                                    <li><a href="https://www.mint.com/">Mint</a></li>
+                                    <li><a href="http://www.quicken.com/lp/qkn16/qlp1a?t=1&priorityCode=1337900000&zna=7&znp=4&cid=ppc_gg_b_stan_402-5275432-4671607&gclid=CPG53djuq8kCFVCQHwodWO0LEA">Quicken</a></li>
+                                    <li><a href="www.tdbank.com">TD Bank</a></li>
+                                    <li><a href="https://www.pnc.com/en/personal-banking.html">PNC Bank</a></li>
+                                    <li><a href="https://www.jpmorgan.com/pages/jpmorgan">J.P. Morgan</a></li>
+                                    <li><a href="http://www.psu.edu/">Penn State</a></li>
+
+                                </ul>
+                            </div>
+                        </div><!--/.col-md-3-->
+                    </div>
+                </div>
+            </section><!--/#bottom-->
+
+
+            <p>&copy; @DateTime.Now.Year Esc Goat Money Advisor</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

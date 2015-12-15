@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication3.Models.Income>
+
+@{
+    ViewBag.Title = "Index";
+    var a = ViewBag.UserId;
+}
+
+<h2>Index</h2>
+
+@if (Model.Count() > 0)
+{
+    var meta = Model.First();
+    <table class="table table-responsive table-striped">
+        <thead>
+            @* TODO: Get Label name from model properties *@
+            @Html.Label("Income Name")
+        </thead>
+        <thead>
+            @* TODO: Get Label name from model properties *@
+            @Html.Label("Income Amount")
+        </thead>
+        @foreach (var account in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(m => account.IncomeName)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => account.IncomeAmount)
+                </td>
+                <td>
+                    @Html.DisplayFor(m => account.IncomeType)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit Income", "Edit", new { id = account.Id })
+                </td>
+            </tr>
+        }
+    </table>
+}
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")*@
+</p>
+
+

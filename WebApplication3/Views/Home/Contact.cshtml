@@ -1,0 +1,108 @@
+﻿@{
+    ViewBag.Title = "Contact";
+}
+@*<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>*@
+
+
+<section id="contact-info">
+    <div class="center">
+        <br />
+        <h2>How to Reach Us?</h2>
+        <p class="lead">You  can call us, or even come in without an appointment. We are glad and happy to serve you</p>
+    </div>
+    <div class="gmap-area">  
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-5 text-center">
+                    <div class="gmap">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12204.80936754221!2d-75.110288!3d40.115494!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xdddc30c9cdaf01d7!2sPenn+State+Abington!5e0!3m2!1sen!2sus!4v1447862498859" width="1250" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                    </div>
+                </div>
+                <div class="col-sm-7 map-content">
+                    <ul class="row">
+                        <li class="col-sm-6">
+                            <address>
+                              <h5>North Office</h5>
+                              <img src="~/Images/office.jpg" alt="Office" width="200" height="200" align="middle" />
+                            </address>
+                            <address>
+                                <h5>Office Location</h5>
+                                <p>
+                                    215 WeMadeIt Road<br>
+                                    Philadelphia, PA 19120
+                                </p>
+                                <p>
+                                    Tel: 215-936-2348 <br>
+                                    Email Address:jiz5163@psu.edu
+                                </p>
+                            </address>
+                        </li>
+
+                        @*<li class="col-sm-6">
+                            <address>
+                                <h5>Office Image</h5>
+                                <img src="~/Images/office.jpg" alt="Office" width="200" height="200" align="middle" />
+                            </address>
+                            <address>
+                                <h5>Zone#3 Office</h5>
+                                <p>
+                                    1537 Flint Street <br>
+                                    Tumon, MP 96911
+                                </p>
+                                <p>
+                                    Phone:670-898-2847 <br>
+                                    Email Address:info@domain.com
+                                </p>
+                            </address>
+                        </li>*@
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>  <!--/gmap_area -->
+<section id="contact-page">
+    <div class="container">
+        <div class="center">
+            <h2>Drop Your Message</h2>
+            <p class="lead">Please fill in all the text box and click sumbit. We will respond within 2-3 business days.</p>
+        </div>
+        <div class="row contact-wrap">
+            <div class="status alert alert-success" style="display: none"></div>
+            <form id="main-contact-form" class="contact-form" name="contact-form" method="post" action="sendemail.php">
+                <div class="col-sm-5 col-sm-offset-1">
+                    <div class="form-group">
+                        <label>Name *</label>
+                        <input type="text" name="name" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Email *</label>
+                        <input type="email" name="email" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="number" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Company Name</label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="col-sm-5">
+                    <div class="form-group">
+                        <label>Subject *</label>
+                        <input type="text" name="subject" class="form-control" required="required">
+                    </div>
+                    <div class="form-group">
+                        <label>Message *</label>
+                        <textarea name="message" id="message" required="required" class="form-control" rows="8"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" name="submit" class="btn btn-primary btn-lg" required="required">Submit Message</button>
+                    </div>
+                </div>
+            </form>
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#contact-page-->
