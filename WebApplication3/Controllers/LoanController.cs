@@ -64,7 +64,9 @@ namespace WebApplication3.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var loan = db.Loan.Where(c => c.Id == id).SingleOrDefault();
+            return View(loan);
         }
 
         // POST: Loan/Edit/5
@@ -72,12 +74,27 @@ namespace WebApplication3.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [Authorize]
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, Loan loanaccount)
         {
             try
             {
                 // TODO: Add update logic here
+                var userId = User.Identity.GetUserId();
+                var loan = db.Loan.Where(c => c.Id == id).SingleOrDefault();
+                try
+                {
+                    loan.ApplicationUserId = userId;
+                    loan.LoanAmount = loanaccount.LoanAmount;
+                    loan.LoanInterestRate = loanaccount.LoanInterestRate;
+                    loan.LoanName = loanaccount.LoanName;
+                    loan.Id = id;
+                }
+                catch
+                {
+                    return View();
+                }
 
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
