@@ -203,6 +203,18 @@
     <Compile Include="Migrations\201512112132308_IncomeandExpensesAdd.Designer.cs">
       <DependentUpon>201512112132308_IncomeandExpensesAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512151657567_LoanTermAdded.cs" />
+    <Compile Include="Migrations\201512151657567_LoanTermAdded.Designer.cs">
+      <DependentUpon>201512151657567_LoanTermAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512151727353_LoanDateAdded.cs" />
+    <Compile Include="Migrations\201512151727353_LoanDateAdded.Designer.cs">
+      <DependentUpon>201512151727353_LoanDateAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512151730417_LoanDateAddedMadeNullable.cs" />
+    <Compile Include="Migrations\201512151730417_LoanDateAddedMadeNullable.Designer.cs">
+      <DependentUpon>201512151730417_LoanDateAddedMadeNullable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CheckingAccount.cs" />
@@ -350,6 +362,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512112132308_IncomeandExpensesAdd.resx">
       <DependentUpon>201512112132308_IncomeandExpensesAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512151657567_LoanTermAdded.resx">
+      <DependentUpon>201512151657567_LoanTermAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512151727353_LoanDateAdded.resx">
+      <DependentUpon>201512151727353_LoanDateAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512151730417_LoanDateAddedMadeNullable.resx">
+      <DependentUpon>201512151730417_LoanDateAddedMadeNullable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

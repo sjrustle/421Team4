@@ -84,6 +84,7 @@ namespace WebApplication3.Controllers
                 try
                 {
                     loan.ApplicationUserId = userId;
+                    loan.LoanTerm = loanaccount.LoanTerm;
                     loan.LoanAmount = loanaccount.LoanAmount;
                     loan.LoanInterestRate = loanaccount.LoanInterestRate;
                     loan.LoanName = loanaccount.LoanName;

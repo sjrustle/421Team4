@@ -21,6 +21,12 @@ namespace WebApplication3.Models
         [Display(Name = "Interest Rate")]
         public decimal LoanInterestRate { get; set; }
 
+        [Display(Name = "Loan Term")]
+        public int LoanTerm { get; set; }
+
+        [Display(Name = "Date Created")]
+        public DateTime? LoanDate { get; set; }
+
         public virtual ApplicationUser User { get; set; }
         public string ApplicationUserId { get; set; }
 
