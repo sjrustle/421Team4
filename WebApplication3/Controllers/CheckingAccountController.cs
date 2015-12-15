@@ -76,18 +76,34 @@ namespace WebApplication3.Controllers
         [Authorize]
         public ActionResult Edit(int id)
         {
-            return View();
+            var userId = User.Identity.GetUserId();
+            var checking = db.CheckingAccounts.Where(c => c.Id == id).SingleOrDefault();
+            return View(checking);
         }
 
         // POST: CheckingAccount/Edit/5
         [Authorize]
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, CheckingAccount checkingaccount)
         {
             try
             {
                 // TODO: Add update logic here
+                var userId = User.Identity.GetUserId();
+                var checking = db.CheckingAccounts.Where(c => c.Id == id).SingleOrDefault();
+                try
+                {
+                    checking.ApplicationUserId = userId;
+                    checking.Balance = checkingaccount.Balance;
+                    checking.CheckingName = checkingaccount.CheckingName;
+                    checking.Id = id;
+                }
+                catch
+                {
+                    return View();
+                }
 
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
             catch
